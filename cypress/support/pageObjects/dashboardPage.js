@@ -1,30 +1,44 @@
 class DashboardPage {
-  // Selectors
-  elements = {
-    dashboardHeader: () => cy.get(".oxd-topbar-header-breadcrumb"),
-    userDropdown: () => cy.get(".oxd-userdropdown-tab"),
-    logoutLink: () => cy.get('a[href="/web/index.php/auth/logout"]'),
-    welcomeText: () => cy.get(".oxd-topbar-header-breadcrumb-module"),
-    sideMenu: () => cy.get(".oxd-main-menu"),
-    quickLaunchIcons: () => cy.get(".orangehrm-dashboard-widget"),
-  };
-
-  // Actions
-  verifyDashboardDisplayed() {
-    cy.url().should("include", "/dashboard");
-    this.elements.dashboardHeader().should("be.visible");
-    this.elements.dashboardHeader().should("contain.text", "Dashboard");
+  directoryMenu() {
+    return cy.get(
+      "a.oxd-main-menu-item[href='/web/index.php/directory/viewDirectory']"
+    );
+  }
+  employeeNameInput() {
+    return cy.get("input[placeholder='Type for hints...']").eq(0);
+  }
+  jobTitleDropdown() {
+    return cy.get(".oxd-select-text--arrow").eq(0);
+  }
+  jobTitleOptions() {
+    return cy.get(".oxd-select-dropdown .oxd-select-option");
+  }
+  searchButton() {
+    return cy.get("button[type='submit']");
   }
 
-  logout() {
-    this.elements.userDropdown().click();
-    this.elements.logoutLink().click();
+  // ====== ACTIONS ======
+
+  /** Klik menu Directory dari Dashboard */
+  clickDirectoryMenu() {
+    this.directoryMenu().click();
   }
 
-  verifyUserLoggedIn() {
-    this.elements.userDropdown().should("be.visible");
-    this.elements.sideMenu().should("be.visible");
+  /** Input Employee Name pada kolom Search */
+  inputEmployeeName(name) {
+    this.employeeNameInput().clear().type(name);
+  }
+
+  /** Pilih Job Title */
+  selectJobTittle(jobTitle) {
+    this.jobTitleDropdown().click(); // buka dropdown
+    this.jobTitleOptions().contains(jobTitle).click(); // pilih berdasarkan text
+  }
+
+  /** Klik tombol Search */
+  searchEmployee() {
+    this.searchButton().click();
   }
 }
 
-export default DashboardPage;
+export default new DashboardPage();

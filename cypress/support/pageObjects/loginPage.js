@@ -1,6 +1,6 @@
 class Login {
-  txtUserName = "input[placeholder='Username']";
-  txtPassword = "input[placeholder='Password']";
+  txtUserName = "input[name='username']";
+  txtPassword = "input[name='password']";
   btnSubmit = "button[type='submit']";
   lblmsg = ".oxd-topbar-header-breadcrumb > .oxd-text";
 

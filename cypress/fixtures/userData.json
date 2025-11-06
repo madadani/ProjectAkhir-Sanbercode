@@ -1,0 +1,24 @@
+{
+  "createUser": {
+    "name": "John Doe",
+    "job": "QA Engineer"
+  },
+  "updateUser": {
+    "name": "John Doe Updated",
+    "job": "Senior QA Engineer"
+  },
+  "registerSuccess": {
+    "email": "eve.holt@reqres.in",
+    "password": "pistol"
+  },
+  "registerFail": {
+    "email": "sydney@fife"
+  },
+  "loginSuccess": {
+    "email": "eve.holt@reqres.in",
+    "password": "cityslicka"
+  },
+  "loginFail": {
+    "email": "peter@klaven"
+  }
+}
