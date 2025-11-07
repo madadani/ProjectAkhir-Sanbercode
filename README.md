@@ -1,3 +1,9 @@
+AUOTOMATION Tes for OerangeHRM Demo
+Proyek ini berisi automation testing menggunakan framework cypress pada website OrangeHRM Demo.
+Testing mencakup fitur Login, Forgot Password, dan Menu Dashboard (Directory).
+Struktur menggunakan format POM dan Intercept
+
+
 Fitur yang di Uji
 1. Login
    - Login dengan valid credential
